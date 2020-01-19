@@ -57,7 +57,7 @@ const TaskList = (props) => {
       <div className="App">
         <div>Task list</div>
         <form onSubmit={handleNewTask}>
-          <input
+          <Styled.Search
             type='text'
             className='input'
             placeholder='Add new task'

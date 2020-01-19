@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+const gray = '#ddd';
+const text = '#333';
+const grayBg = '#f1f1f1';
+const grayBgHover = '#f5f5f5';
+
+export const Search = styled.input`
+  border: 1px solid ${gray};
+  border-radius: 4px;
+  padding: 5px;
+`;
+
 export const List = styled.li`
   padding: 5px 0;
   margin: 0;
@@ -10,13 +21,13 @@ export const List = styled.li`
 `;
 
 export const BtnLinks = styled.a`
-  background: #f1f1f1;
-  color: #333;
+  background: ${grayBg};
+  color: ${text};
   padding: 5px 10px;
   font-size: 15px;
   font-weight: bold;
   display: inline-block;
-  border: 1px solid #ddd;
+  border: 1px solid ${gray};
   cursor: pointer;
   text-decoration: none;
 
@@ -25,6 +36,6 @@ export const BtnLinks = styled.a`
   }
 
   :hover {
-    background: #f5f5f5;
+    background: ${grayBgHover};
   }
 `;

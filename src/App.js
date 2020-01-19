@@ -1,10 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.scss';
-import TaskList from './components/taskList';
-import taskListClass from './components/taskListClass';
-import Home from './components/home';
-import {Login, Register} from './components/login/index';
+import routes from './components/routes';
 
 function App() {
 
@@ -31,11 +28,16 @@ function App() {
       </header>
       <div className="container">
         <Switch>
-          <Route path="/tasklist/class" component={taskListClass}></Route>
-          <Route path="/tasklist/function" component={TaskList}></Route>
-          <Route path="/register"><Register /></Route>
-          <Route path="/login"><Login /></Route>
-          <Route path="/"><Home /></Route>
+          {routes.map((route, i) => (
+            <Route
+              key={i}
+              path={route.path}
+              // component={route.component}
+              exact={route.exact && route.exact}
+            >
+              {<route.component/>}
+            </Route>
+          ))}
         </Switch>
       </div>
     </Router>
