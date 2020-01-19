@@ -18,7 +18,7 @@ export default class taskListClass extends React.Component {
       {
         title: 'Call my brotha',
         completeted: false
-      }] 
+      }]
     }
   }
 
