@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import './App.scss';
+import TaskList from './components/taskList';
+import taskListClass from './components/taskListClass';
+import Home from './components/home';
+import {Login, Register} from './components/login/index';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+   return (
+    <Router>
+      <header>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/taskList/class">[Class-based]TaskList</Link>
+          </li>
+          <li>
+            <Link to="/taskList/function">[Function-based]TaskList</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+        </ul>
       </header>
-    </div>
-  );
+      <div className="container">
+        <Switch>
+          <Route path="/tasklist/class" component={taskListClass}></Route>
+          <Route path="/tasklist/function" component={TaskList}></Route>
+          <Route path="/register"><Register /></Route>
+          <Route path="/login"><Login /></Route>
+          <Route path="/"><Home /></Route>
+        </Switch>
+      </div>
+    </Router>
+   )
 }
 
 export default App;
